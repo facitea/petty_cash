@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>시재 계산기</title>
+
+  <style>
+#notice {
+clear:both;
+font-size:0.7em;
+}
+#title{
+font-size:0.3em;
+}
+#yang{}
+#jong{}
+#hyeon{}
+#result_btn{
+float:right;
+}
+form{
+width:230px;
+}
+  </style>
+
+  <title>시재 계산기</title>
+
+</head>
+
+<body>
+<h1>시재 계산기<span id="title">made by 종현</span></h1>
+<p>
+<form>
+<div id="yang">
+  5만원 <input type="text" id="oman" value=0>
+  <br>
+  1만원 <input type="text" id="man" value=0>
+  <br>
+  5천원 <input type="text" id="ochon" value=0>
+  <br>
+  1천원 <input type="text" id="chon" value=0>
+</div>
+  <p>
+<div id="jong">
+  5백원 <input type="text" id="obek" value=0>
+  <br>
+  1백원 <input type="text" id="bek" value=0>
+  <br>
+  5십원 <input type="text" id="osip" value=0>
+  <br>
+  1십원 <input type="text" id="sip" value=0>
+</div>
+  <p>
+<div id="hyeon">
+  5백묶 <input type="text" id="obekk" value=0>
+  <br>
+  1백묶 <input type="text" id="bekk" value=0>
+  <br>
+  5십묶 <input type="text" id="osipp" value=0>
+  <br>
+  1십묶 <input type="text" id="sipp" value=0>
+</div>
+
+<p>
+<div id="result_btn">
+  <input type="button" value="계산" onclick="run()">
+</div>
+</form>
+<p>
+
+<div id="notice">
+★주의★
+<br>
+Internet Explorer 실행시
+<br>
+"스크립트 또는 ActiveX 컨트롤을 실행하는 것을 제한했습니다"
+<br>라고 뜰 경우 '차단된 콘텐츠 허용' 버튼 눌러주세요
+<p>
+Edge 또는 Chrome 브라우저 사용 권장합니다
+</div>
+
+
+
+  
+
+  <script>
+
+    function run(){
+
+      let oman = parseInt(document.getElementById('oman').value);
+
+      let man = parseInt(document.getElementById('man').value);
+
+      let ochon = parseInt(document.getElementById('ochon').value);
+
+      let chon = parseInt(document.getElementById('chon').value);
+
+      let obek = parseInt(document.getElementById('obek').value);
+
+      let bek = parseInt(document.getElementById('bek').value);
+
+      let osip = parseInt(document.getElementById('osip').value);
+
+      let sip = parseInt(document.getElementById('sip').value);
+
+      let obekk = parseInt(document.getElementById('obekk').value);
+
+      let bekk = parseInt(document.getElementById('bekk').value);
+
+      let osipp = parseInt(document.getElementById('osipp').value);
+
+      let sipp = parseInt(document.getElementById('sipp').value);
+
+      
+
+      let result = 50000*oman+10000*man+5000*ochon+1000*chon+500*obek+100*bek+50*osip+10*sip+20000*obekk+5000*bekk+2500*osipp+500*sipp
+
+      
+
+      alert(result+"원입니다.")
+
+    }
+
+  </script>
+
+</body>
+
+</html>
