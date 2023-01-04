@@ -1,135 +1,154 @@
-﻿<!DOCTYPE html>
-
+<!DOCTYPE html>
 <html lang="ko">
 
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시재 계산기</title>
+    <style>
+        .notice {
+            clear: both;
+            font-size: 0.7em;
+        }
 
-  <meta charset="UTF-8">
+        .wrapper {
+            width: 170px;
+        }
 
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        input {
+            width: 40px;
+            text-align: right;
+        }
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>시재 계산기</title>
-
-  <style>
-#notice {
-clear:both;
-font-size:0.7em;
-}
-#title{
-font-size:0.3em;
-}
-#yang{}
-#jong{}
-#hyeon{}
-#result_btn{
-float:right;
-}
-form{
-width:230px;
-}
-  </style>
-
-  <title>시재 계산기</title>
-
+        .btnWrapper {
+            margin-top: 20px;
+            float: right;
+        }
+    </style>
+    <title>시재 계산기</title>
 </head>
 
 <body>
-<h1>시재 계산기<span id="title">made by 종현</span></h1>
-<p>
-<form>
-<div id="yang">
-  5만원 <input type="text" id="oman" value=0>
-  <br>
-  1만원 <input type="text" id="man" value=0>
-  <br>
-  5천원 <input type="text" id="ochon" value=0>
-  <br>
-  1천원 <input type="text" id="chon" value=0>
-</div>
-  <p>
-<div id="jong">
-  5백원 <input type="text" id="obek" value=0>
-  <br>
-  1백원 <input type="text" id="bek" value=0>
-  <br>
-  5십원 <input type="text" id="osip" value=0>
-  <br>
-  1십원 <input type="text" id="sip" value=0>
-</div>
-  <p>
-<div id="hyeon">
-  5백묶 <input type="text" id="obekk" value=0>
-  <br>
-  1백묶 <input type="text" id="bekk" value=0>
-  <br>
-  5십묶 <input type="text" id="osipp" value=0>
-  <br>
-  1십묶 <input type="text" id="sipp" value=0>
-</div>
+    <header>
+        <h1>시재 계산기</h1>
+    </header>
 
-<p>
-<div id="result_btn">
-  <input type="button" value="계산" onclick="run()">
-</div>
-</form>
-<p>
+    <section>
+        <div class="wrapper">
+            <table>
+                <tr>
+                    <td>5만원</td>
+                    <td><input type="text" id="won50000" value=0>개</td>
+                </tr>
+                <tr>
+                    <td>1만원</td>
+                    <td><input type="text" id="won10000" value=0>개</td>
+                </tr>
+                <tr>
+                    <td>5천원</td>
+                    <td><input type="text" id="won5000" value=0>개</td>
+                </tr>
+                <tr>
+                    <td>1천원</td>
+                    <td><input type="text" id="won1000" value=0>개</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>5백원</td>
+                    <td><input type="text" id="won500" value=0>개</td>
+                </tr>
+                <tr>
+                    <td>1백원</td>
+                    <td><input type="text" id="won100" value=0>개</td>
+                </tr>
+                <tr>
+                    <td>5십원</td>
+                    <td><input type="text" id="won50" value=0>개</td>
+                </tr>
+                <tr>
+                    <td>1십원</td>
+                    <td><input type="text" id="won10" value=0>개</td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>5백묶</td>
+                    <td><input type="text" id="won500set" value=0>개</td>
+                </tr>
+                <tr>
+                    <td>1백묶</td>
+                    <td><input type="text" id="won100set" value=0>개</td>
+                </tr>
+                <tr>
+                    <td>5십묶</td>
+                    <td><input type="text" id="won50set" value=0>개</td>
+                </tr>
+                <tr>
+                    <td>1십묶</td>
+                    <td><input type="text" id="won10set" value=0>개</td>
+                </tr>
+            </table>
 
-<div id="notice">
-★주의★
-<br>
-Internet Explorer 실행시
-<br>
-"스크립트 또는 ActiveX 컨트롤을 실행하는 것을 제한했습니다"
-<br>라고 뜰 경우 '차단된 콘텐츠 허용' 버튼 눌러주세요
-<p>
-Edge 또는 Chrome 브라우저 사용 권장합니다
-</div>
+            <div class="btnWrapper">
+                <button id="calcBtn">계산하기</button>
+            </div>
+        </div>
 
 
+    </section>
+    <p>
 
-  
+    <div class="notice">
+        <p>
+            ★주의★
+            <br>Internet Explorer 실행시
+            <br>"스크립트 또는 ActiveX 컨트롤을 실행하는 것을 제한했습니다"
+            <br>라고 뜰 경우 '차단된 콘텐츠 허용' 버튼 눌러주세요
+            <br>Edge / Chrome 브라우저 사용 권장합니다
+        </p>
+    </div>
 
-  <script>
+    <script>
+        const calcBtn = document.getElementById('calcBtn');
 
-    function run(){
+        calcBtn.addEventListener('click', () => {
+            run();
+        })
 
-      let oman = parseInt(document.getElementById('oman').value);
+        const run = () => {
+            const won50000 = parseInt(document.getElementById('won50000').value);
+            const won10000 = parseInt(document.getElementById('won10000').value);
+            const won5000 = parseInt(document.getElementById('won5000').value);
+            const won1000 = parseInt(document.getElementById('won1000').value);
+            const won500 = parseInt(document.getElementById('won500').value);
+            const won100 = parseInt(document.getElementById('won100').value);
+            const won50 = parseInt(document.getElementById('won50').value);
+            const won10 = parseInt(document.getElementById('won10').value);
+            const won500set = parseInt(document.getElementById('won500set').value);
+            const won100set = parseInt(document.getElementById('won100set').value);
+            const won50set = parseInt(document.getElementById('won50set').value);
+            const won10set = parseInt(document.getElementById('won10set').value);
 
-      let man = parseInt(document.getElementById('man').value);
+            const result = (50000 * won50000)
+                + (10000 * won10000)
+                + (5000 * won5000)
+                + (1000 * won1000)
+                + (500 * won500)
+                + (100 * won100)
+                + (50 * won50)
+                + (10 * won10)
+                + (20000 * won500set)
+                + (5000 * won100set)
+                + (2500 * won50set)
+                + (500 * won10set);
 
-      let ochon = parseInt(document.getElementById('ochon').value);
+            alert(result + "원입니다.")
+        }
 
-      let chon = parseInt(document.getElementById('chon').value);
-
-      let obek = parseInt(document.getElementById('obek').value);
-
-      let bek = parseInt(document.getElementById('bek').value);
-
-      let osip = parseInt(document.getElementById('osip').value);
-
-      let sip = parseInt(document.getElementById('sip').value);
-
-      let obekk = parseInt(document.getElementById('obekk').value);
-
-      let bekk = parseInt(document.getElementById('bekk').value);
-
-      let osipp = parseInt(document.getElementById('osipp').value);
-
-      let sipp = parseInt(document.getElementById('sipp').value);
-
-      
-
-      let result = 50000*oman+10000*man+5000*ochon+1000*chon+500*obek+100*bek+50*osip+10*sip+20000*obekk+5000*bekk+2500*osipp+500*sipp
-
-      
-
-      alert(result+"원입니다.")
-
-    }
-
-  </script>
-
+    </script>
 </body>
-
 </html>
